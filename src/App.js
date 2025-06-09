@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import UserPage from "./layout/user_page/UserPage";
+import UserSelect from "./component/user_select/UserSelect";
+import AddTools from "./component/add-tools/AddTools";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<UserPage/>} />
+          <Route path="/chatgpt-tools" element={<UserSelect />} />
+           <Route path="/add-tools" element={<AddTools />} />
+     
+      </Routes>
+    </Router>
   );
 }
 
